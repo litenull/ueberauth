@@ -409,7 +409,8 @@ defmodule Ueberauth.Strategy do
 
     conn
     |> Conn.put_resp_cookie(@state_param_cookie_name, state,
-      same_site: get_state_param_cookie_same_site(strategy)
+      same_site: get_state_param_cookie_same_site(strategy),
+      secure: true
     )
     |> Helpers.add_state_param(state)
   end
